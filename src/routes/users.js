@@ -17,7 +17,7 @@ router.get("/status/:id", authorize(role.ADMIN), asyncHandler(getFilterByStatus)
 router.post("/add", authorize(role.ADMIN), asyncHandler(addUser));
 
 //Change user Password
-router.post("/changepassword", authorize(role.ADMIN, role.USER), asyncHandler(changePassword));
+router.put("/changepassword", authorize(role.ADMIN, role.USER), asyncHandler(changePassword));
 
 //Disable User
 router.delete("/remove/:username", authorize(role.ADMIN), asyncHandler(removeUser));
