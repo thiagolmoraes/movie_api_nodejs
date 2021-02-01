@@ -1,0 +1,30 @@
+{
+  "name": "teste-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://thiagoluismoraes@bitbucket.org/thiagoluismoraes/teste-backend.git",
+  "author": "Thiago Moraes <thiagoluismoraes@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "sequelize-cli": "^6.2.0"
+  }
+}
