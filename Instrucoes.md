@@ -44,10 +44,6 @@ Esses itens não são obrigatórios, porém desejados.
 
 Você deverá criar uma API que o site [IMDb](https://www.imdb.com/) irá consultar para exibir seu conteúdo, sua API deve conter as seguintes features:
 
-Global: 
-
- - [x] Criar Middleware para Authorization
- - [x] Habilitar o middleware em rotas
 
 - Admin
 
@@ -64,7 +60,7 @@ Global:
 - Filmes
 
   - [x] Cadastro (Somente um usuário administrador poderá realizar esse cadastro)
-  - [ ] Voto (A contagem dos votos será feita por usuário de 0-4 que indica quanto o usuário gostou do filme)
+  - [x] Voto (A contagem dos votos será feita por usuário de 0-4 que indica quanto o usuário gostou do filme)
   - [x] Listagem (deverá ter filtro por diretor, nome, gênero e/ou atores)
   - [x] Detalhe do filme trazendo todas as informações sobre o filme, inclusive a média dos votos
 

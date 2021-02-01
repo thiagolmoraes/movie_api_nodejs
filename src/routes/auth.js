@@ -11,7 +11,7 @@ const { verifyJWT, authorize } = require('../middlewares/');
 router.post('/login', asyncHandler(login));
 
 //Logout
-router.get('/logout', asyncHandler(logout));
+router.delete('/logout', asyncHandler(logout));
 
 //Global Check JWT Token
 router.use(verifyJWT);

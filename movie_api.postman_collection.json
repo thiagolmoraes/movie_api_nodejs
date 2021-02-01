@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bfa2abea-7082-4782-92af-5750ad91e42b",
+		"_postman_id": "e4ca48f0-f0f2-46be-bf8a-bce883d9a3f6",
 		"name": "Movie API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -216,13 +216,13 @@
 					"response": []
 				},
 				{
-					"name": "Active User",
+					"name": "Activate User",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\":\"thiago\"\n}",
+							"raw": "{\n\t\"username\":\"teste\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -230,7 +230,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/api/users/active",
+							"raw": "http://localhost:3333/api/users/activate",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -239,7 +239,7 @@
 							"path": [
 								"api",
 								"users",
-								"active"
+								"activate"
 							]
 						}
 					},
@@ -292,6 +292,28 @@
 								"users",
 								"remove",
 								"thiago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by User Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/users/status/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"users",
+								"status",
+								"1"
 							]
 						}
 					},
@@ -351,7 +373,7 @@
 		{
 			"name": "Logout",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:3333/api/logout",

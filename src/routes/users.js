@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-const { changePassword, activeUser, getAllUsers, addUser, removeUser, getFilterByStatus } = require("../controllers/users");
+const { changePassword, activateUser, getAllUsers, addUser, removeUser, getFilterByStatus } = require("../controllers/users");
 
 //Authorization Role 
 const role = require('../middlewares/role');
@@ -23,6 +23,6 @@ router.put("/changepassword", authorize(role.ADMIN, role.USER), asyncHandler(cha
 router.delete("/remove/:username", authorize(role.ADMIN), asyncHandler(removeUser));
 
 //Enable User
-router.put("/active", authorize(role.ADMIN), asyncHandler(activeUser));
+router.put("/activate", authorize(role.ADMIN), asyncHandler(activateUser));
 
 module.exports = router;

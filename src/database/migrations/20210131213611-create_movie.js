@@ -22,9 +22,6 @@ module.exports = {
       release_date: {
         type: Sequelize.INTEGER
       },
-      rating: {
-        type: Sequelize.FLOAT
-      },
       directors: {
         type: Sequelize.STRING,
         allowNull: false
@@ -43,6 +40,7 @@ module.exports = {
       }
     });
   },
+  // eslint-disable-next-line no-unused-vars
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Movies');
   }

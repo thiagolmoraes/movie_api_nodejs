@@ -27,14 +27,14 @@ const addUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.findAll();
-        if (users.length !== 0) {
-            return res.status(200).send(users);
-        } else {
+        if (users.length == 0) {
             return res.status(400).send({ message: "Users was not found!" });
         }
 
+        return res.status(200).send(users);
+
     } catch (error) {
-        return res.status(400).send({ message: "Error detected! Please contact the Administrator" });
+        return res.status(400).send({ message: "Something went wrong, please contact the administrator." });
     }
 };
 
@@ -43,13 +43,14 @@ const getFilterByStatus = async (req, res) => {
     try {
         const { id } = req.params;
         const users = await User.findAll({ where: { status: id } });
-        if (users.length !== 0) {
-            return res.status(200).send(users);
-        } else {
+
+        if (users.length == 0) {
             return res.status(400).send({ message: "Users was not found!" });
         }
+        return res.status(200).send(users);
+
     } catch (erro) {
-        return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+        return res.status(400).send({ message: "Something went wrong, please contact the administrator." });
     }
 };
 
@@ -65,50 +66,52 @@ const changePassword = async (req, res) => {
             return res.status(400).send({ message: "User or Password are incorrect!" });
         }
 
-        if (await user.validPassword(oldpassword)) {
-            if (newpassword !== oldpassword) {
-                const salt = bcrypt.genSaltSync();
-                user.password = bcrypt.hashSync(newpassword, salt);
-                const save = user.save();
-                if (save) {
-                    return res.status(200).send({ message: "Password has been changed!" });
-                } else {
-                    return res.status(400).send({ message: "It was not possible to change your password" });
-                }
-            } else {
-                return res.status(400).send({ message: "Old and New Password are equals." });
-            }
-
-        } else {
+        if (!await user.validPassword(oldpassword)) {
             return res.status(401).send({ message: "User or Password are incorrect!" });
+
+        }
+        if (newpassword == oldpassword) {
+            return res.status(400).send({ message: "Old and New Password are equals." });
         }
 
+        const salt = bcrypt.genSaltSync();
+        user.password = bcrypt.hashSync(newpassword, salt);
+        const save = user.save();
+
+        if (!save) {
+            return res.status(400).send({ message: "It was not possible to change your password" });
+        }
+
+        return res.status(200).send({ message: "Password has been changed!" });
+
     } catch (error) {
-        return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+        return res.status(400).send({ message: "Something went wrong, please contact the administrator." });
     }
 };
 
 //Change status = 0 to 1,  activing user
-const activeUser = async (req, res) => {
+const activateUser = async (req, res) => {
     try {
         const { username } = req.body;
         const user = await User.findOne({
             where: { username }
         });
 
-        if (!user) {
+        if (!user || user.status === 1) {
             return res.status(400).send({ message: "User not found!" });
         }
 
         user.status = 1;
         const result = await user.save();
-        if (result) {
-            return res.status(200).send({ message: "User has been successfully actived!" });
-        } else {
-            return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+
+        if (!result) {
+            return res.status(400).send({ message: "It was not possible activate user" });
         }
+
+        return res.status(200).send({ message: "User has been successfully activated!" });
+
     } catch (error) {
-        return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+        return res.status(400).send({ message: "Something went wrong, please contact the administrator." });
     }
 
 };
@@ -127,17 +130,19 @@ const removeUser = async (req, res) => {
 
         user.status = 0;
         const result = await user.save();
-        if (result) {
-            return res.status(200).send({ message: "User has been successfully removed!" });
-        } else {
-            return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+
+        if (!result) {
+            return res.status(400).send({ message: "It was not possible remove user!" });
         }
 
+        return res.status(200).send({ message: "User has been successfully removed!" });
+
+
     } catch (error) {
-        return res.status(400).send({ message: "Error Detected! Please contact the Administrator" });
+        return res.status(400).send({ message: "Something went wrong, please contact the administrator." });
     }
 
 };
 
 
-module.exports = { getAllUsers, addUser, removeUser, getFilterByStatus, activeUser, changePassword };
+module.exports = { getAllUsers, addUser, removeUser, getFilterByStatus, activateUser, changePassword };

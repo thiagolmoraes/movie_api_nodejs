@@ -7,6 +7,9 @@ A Api permite que você adicione, busque e avalie filmes.
  - ExpressJS
  - Sequelize
  - JWT
+ - MySQL
+ - Eslint
+ 
  
 #### Como instalar
 
@@ -18,6 +21,7 @@ Depois execute
 ```
 yarn install
 $ ./sequelize_start.sh
+yarn run dev
 ```
 
 ### Como usar
@@ -40,4 +44,4 @@ Resposta:
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyMiIsInBhc3N3b3JkIjoiJDJiJDEwJC5CdjVwL2RobjZ6eWZnM3NHWWR4N3VZQUEvNkk4NEZhQ29ldGNaOVRhVTR5Nm52YkV3bzUuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2MTIxNjEyNzksImV4cCI6MTYxMjI0NzY3OX0.2bldwg3FA3fsfrtL2lRxQgJNzASsPzVyYiRcOuSO7eM"
 }`
 
-Importe o arquivo para o Postman e Insomnia
+#### Importe o arquivo para o Postman e Insomnia e teste o restante das funcionalidade. :)

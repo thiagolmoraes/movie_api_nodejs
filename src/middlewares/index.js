@@ -4,12 +4,11 @@ const config = require("../config/jwt.config").secret;
 function verifyJWT(req, res, next) {
     const token = req.cookies['authcookie'] || '';
     try {
-        if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
-
+        if (!token) return res.status(401).send({ message: 'No token provided.' });
 
 
         jwt.verify(token, config, function (err, decoded) {
-            if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+            if (err) return res.status(500).send({ message: 'Failed to authenticate token.' });
 
             let rol = decoded.role;
             req.userRole = rol.toLowerCase();
@@ -27,14 +26,9 @@ function authorize(...roles) {
     const allowedRoles = new Set(roles);
 
     return (req, res, next) => {
-        if (!req.userRole || !req.userId) {
-            // next();
-            return res.status(501).send({ message: "Unauthorized" });
-        }
-
         if (!isAuthorized([req.userRole], allowedRoles)) {
             // next();
-            return res.status(501).send({ message: "Forbidden" });
+            return res.status(501).send({ message: "Forbidden Access" });
         }
 
         next();

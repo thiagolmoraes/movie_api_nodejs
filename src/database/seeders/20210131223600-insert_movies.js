@@ -4,7 +4,6 @@ const movies = [
   {
     "title": "The Cotton Club",
     "release_date": 1984,
-    "rating": 4,
     "genders": "Music, Action",
     "actors": "Tim, Claus, Mario Novas",
     "directors": "Francis Ford Coppola, Blazer",
@@ -16,7 +15,6 @@ const movies = [
   {
     "title": "Beetlejuice",
     "release_date": 1988,
-    "rating": 3.3,
     "genders": "Fantasy",
     "actors": "Tim, Claus, Mario Novas, Ricardo, Paulo",
     "directors": "Tim Burton",
@@ -25,21 +23,8 @@ const movies = [
     "updated_at": "2021-02-01 01:59:47",
   },
   {
-    "title": "The Shawshank Redemption",
-    "release_date": 1994,
-    "rating": "30",
-    "genders": "Drama",
-    "actors": "Fabiana, Marcos, Geraldo",
-    "directors": "Frank Darabont",
-    "overview": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    "created_at": "2021-02-01 01:59:47",
-    "updated_at": "2021-02-01 01:59:47",
-
-  },
-  {
     "title": "Crocodile Dundee",
     "release_date": 1986,
-    "rating": 4,
     "genders": "Comedy",
     "directors": "Peter Faiman",
     "actors": "Crocodilo Danti, Marcos Paulo",
@@ -47,17 +32,6 @@ const movies = [
     "created_at": "2021-02-01 01:59:47",
     "updated_at": "2021-02-01 01:59:47",
 
-  },
-  {
-    "title": "Valkyrie",
-    "release_date": 2008,
-    "rating": 10,
-    "genders": "Thriller, Comedy",
-    "directors": "Bryan Singer",
-    "actors": "Tim, Claus, Mario Novas, Ricardo, Paulo",
-    "overview": "A dramatization of the 20 July assassination and political coup overview by desperate renegade German Army officers against Hitler during World War II.",
-    "created_at": "2021-02-01 01:59:47",
-    "updated_at": "2021-02-01 01:59:47",
   },
 ];
 
