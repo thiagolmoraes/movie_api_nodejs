@@ -4,9 +4,9 @@ A Api permite que você adicione, busque e avalie filmes.
 
 #### Ferramentas Utilizadas
 
- *ExpressJS*
- *Sequelize*
- *JWT*
+ - ExpressJS
+ - Sequelize
+ - JWT
  
 #### Como instalar
 
