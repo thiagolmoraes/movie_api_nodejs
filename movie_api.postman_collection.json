@@ -9,12 +9,12 @@
 			"name": "Movies",
 			"item": [
 				{
-					"name": "Movie Details",
+					"name": "Movie Details (by Title)",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/movies/details/Cotton",
+							"raw": "http://localhost:3333/api/movies/details/Ave",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -24,7 +24,7 @@
 								"api",
 								"movies",
 								"details",
-								"Cotton"
+								"Ave"
 							]
 						}
 					},
@@ -57,7 +57,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/movies/findby/couple",
+							"raw": "http://localhost:3333/api/movies/findby/A",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -67,7 +67,7 @@
 								"api",
 								"movies",
 								"findby",
-								"couple"
+								"A"
 							]
 						}
 					},
@@ -80,7 +80,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"Avengers 3\",\n\t\"overview\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod eleifend facilisis. Nam in ipsum augue. Vestibulum accumsan nisi sem, at accumsan purus scelerisque nec.\",\n\t\"release_date\": \"2018\",\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\"genders\": \"Fantasy\",\n\t\"directors\": \"Russos\",\n\t\"rating\": 0,\n\t\"actors\":\"Bad Boys\"\n}\n",
+							"raw": "{\n\t\"title\": \"Avengers\",\n\t\"overview\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod eleifend facilisis. Nam in ipsum augue. Vestibulum accumsan nisi sem, at accumsan purus scelerisque nec.\",\n\t\"release_date\": \"2018\",\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\"genders\": \"Fantasy\",\n\t\"directors\": \"Russos\",\n\t\"actors\":\"Bad Boys\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -115,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"movie_id\": 7,\n\t\"rating\": 4\n}",
+							"raw": "{\n\t\"movie_id\": 5,\n\t\"rating\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\":\"ricardo\",\n\t\"password\":\"123\",\n\t\"role\": \"user\"\n}\n",
+							"raw": "{\n\t\"username\":\"teste\",\n\t\"password\":\"123\",\n\t\"role\": \"user\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,7 +222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\":\"teste\"\n}",
+							"raw": "{\n\t\"username\":\"user1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,7 +252,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"username\":\"thiago\",\n\"oldpassword\":\"12345\",\n\"newpassword\":\"12346\"\n}",
+							"raw": "{\n\"username\":\"user3\",\n\"oldpassword\":\"123\",\n\"newpassword\":\"123mudar\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -281,7 +281,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/users/remove/thiago",
+							"raw": "http://localhost:3333/api/users/remove/user1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -291,7 +291,7 @@
 								"api",
 								"users",
 								"remove",
-								"thiago"
+								"user1"
 							]
 						}
 					},
@@ -303,7 +303,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/users/status/1",
+							"raw": "http://localhost:3333/api/users/status/0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -313,7 +313,7 @@
 								"api",
 								"users",
 								"status",
-								"1"
+								"0"
 							]
 						}
 					},
@@ -328,7 +328,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\":\"admin\",\n\t\"password\":\"123mudar\"\n}",
+					"raw": "{\n\t\"username\":\"user3\",\n\t\"password\":\"123mudar\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

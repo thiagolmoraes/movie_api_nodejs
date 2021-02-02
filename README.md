@@ -13,8 +13,11 @@ A Api permite que você adicione, busque e avalie filmes.
  
 #### Como instalar
 
+A Aplicação vou desenvolvida utilizando *MySQL*, você pode usar um container caso não o tenha e não queira baixar.
 
-Antes de instalar fique a vontade de mudar as configurações do banco de dados localizado na pasta ``` src/config/database.js``` para sua preferencia.
+´docker run -d --name mysql_container -e MYSQL_USER='thiago' -e MYSQL_ROOT_PASSWORD='123Mudar@' -e MYSQL_PASSWORD='123Mudar@' -p 3306:3306 mysql:8´
+
+Caso fizer alguma alteração as configurações do banco de dados estão localizados na pasta ``` src/config/database.js```.
 
 Depois execute 
 

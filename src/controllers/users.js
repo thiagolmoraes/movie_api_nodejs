@@ -62,7 +62,13 @@ const changePassword = async (req, res) => {
             where: { username }
         });
 
-        if (!user) {
+        console.log(user);
+
+        if (user.username !== req.userName) {
+            return res.status(400).send({ message: "Only change your user's password!" });
+        }
+
+        if (!user || user == null) {
             return res.status(400).send({ message: "User or Password are incorrect!" });
         }
 

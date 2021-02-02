@@ -8,7 +8,6 @@ const voteUP = async (req, res) => {
             return res.status(400).send({ message: "Movie was not found!" });
         }
 
-        console.log(movie_result)
         //Check if user already vote in that movie_id
 
         const duplicate_vote = await Rating.findOne({
@@ -21,14 +20,14 @@ const voteUP = async (req, res) => {
 
         // Value between 0 and 4
         if (!isNaN(rating) && typeof rating == 'number' && rating >= 0 && rating <= 4) {
-            // const ratings = await Rating.create({ user_id: req.userId, movie_id: movie_id, rating });
-            const ratings = 1;
+            const ratings = await Rating.create({ user_id: req.userId, movie_id: movie_id, rating });
+
             if (!ratings) {
                 return res.status(400).send({ message: "Sorry, it was not possible to vote!" });
             }
             return res.status(200).send({ message: "Vote successfully registered" });
         } else {
-            return res.status(400).send({ message: "" });
+            return res.status(400).send({ message: "The rating value must be between 0 and 4!" });
         }
 
     } catch (error) {

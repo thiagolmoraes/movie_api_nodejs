@@ -4,9 +4,21 @@ const sequelize = require("sequelize");
 const getAll = async (req, res) => {
     try {
         const movies = await Movie.sequelize.query(`
-            SELECT movies.id, movies.title, movies.overview, movies.release_date, movies.directors, movies.genders, movies.actors, ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1) as rating 
-            FROM movies LEFT JOIN ratings ON movies.id = ratings.movie_id 
-            GROUP BY movies.id, movies.title
+            SELECT 
+                movies.id, 
+                movies.title, 
+                movies.overview, 
+                movies.release_date, 
+                movies.directors, 
+                movies.genders, 
+                movies.actors, 
+                COALESCE(ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1),0) as rating 
+            FROM 
+                movies 
+            LEFT JOIN 
+                ratings ON movies.id = ratings.movie_id 
+            GROUP BY 
+                movies.id, movies.title
         `, { type: sequelize.QueryTypes.SELECT, nest: true });
 
         if (movies.length === 0) {
@@ -44,10 +56,22 @@ const details = async (req, res) => {
         const { title } = req.params;
 
         const movie = await Movie.sequelize.query(`
-            SELECT movies.id, movies.title, movies.overview, movies.release_date, movies.directors, movies.genders, movies.actors, ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1) as rating 
-            FROM movies LEFT JOIN ratings ON movies.id = ratings.movie_id 
-            WHERE movies.title like '%${title}%'
-            GROUP BY movies.id, movies.title
+            SELECT 
+                movies.id, 
+                movies.title, 
+                movies.overview, 
+                movies.release_date, 
+                movies.directors, 
+                movies.genders,
+                movies.actors, 
+                COALESCE(ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1),0) as rating
+            FROM movies 
+            LEFT JOIN 
+                ratings ON movies.id = ratings.movie_id 
+            WHERE 
+                movies.title like '%${title}%'
+            GROUP BY 
+                movies.id, movies.title
         `, { type: sequelize.QueryTypes.SELECT, nest: true });
 
         if (movie.length === 0) {
@@ -75,7 +99,7 @@ const findBy = async (req, res) => {
                 movies.directors,
                 movies.genders,
                 movies.actors,
-                ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1) as rating
+                COALESCE(ROUND(AVG(CAST(ratings.rating AS FLOAT)), 1),0) as rating
             FROM
                 movies
                 LEFT JOIN ratings ON movies.id = ratings.movie_id      
